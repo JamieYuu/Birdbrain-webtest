@@ -1,0 +1,191 @@
+@import "neat/neat";
+
+body {
+    background-color: gray;
+}
+
+$body-background-thirds: (
+    columns: 12,
+    gutter: 0px,
+    media: "(min-width: 1000px)",
+);
+
+$body-background-thirds-below: (
+    columns: 1,
+    gutter: 0px,
+);
+
+$header-link-sixs: (
+    columns: 13,
+    gutter: 5px,
+    media: "(min-width: 768px)",
+);
+
+$header-link-below: (
+    columns: 1,
+    gutter: 0px,
+);
+
+.body-background-thirds {
+    @include grid-container;
+}
+
+.body-background-thirds__side {
+    @include grid-column(2, $body-background-thirds);
+    height: 1px;
+}
+
+.body-background-thirds__center {
+    @include grid-column(1, $body-background-thirds-below);
+
+    @include grid-media($body-background-thirds) {
+        @include grid-column(8);
+    }
+    background-color: white;
+    height: 1000px;
+}
+
+.header-link-sixs {
+    @include grid-container;
+}
+
+.header-link-sixs__theLink {
+    @include grid-media($header-link-sixs) {
+        @include grid-column(1);
+        margin-top: 50px;
+        font-size: 8px;
+        text-align: center;
+    }
+
+    @include grid-column(1, $header-link-below);
+    font-size: 8px;
+}
+
+.header-link-sixs__contact {
+    @include grid-column(1, $header-link-sixs);
+    margin-top: 50px;
+    font-size: 8px;
+    text-align: center;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.the-link {
+    &:hover { 
+        cursor: pointer; 
+        color: rgb(10, 130, 245);
+    }
+}
+
+.header-link-sixs__left-blank {
+    @include grid-column(6, $header-link-sixs);
+    margin-top: 50px;
+}
+
+// for nav drawer
+#nav-icon {
+    margin: 20px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media (max-width: 1000px) {
+    #nav-links {
+        display: none;
+    }
+}
+
+@media (min-width: 1000px) {
+    #nav-icon {
+        display: none;
+    }
+}
+// 
+
+
+//for slides
+.mySlides {
+    display:none;
+    width: 400px;
+    height: 150px;
+}
+
+.slideshow-container {
+    width: 400px;
+    height: 200px;
+    margin-top: 120px;
+    margin-left: 100px;
+}
+
+.slides-text {
+    line-height: 10%;
+}
+
+.dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+  
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+  
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
