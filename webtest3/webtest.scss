@@ -42,7 +42,7 @@ $header-link-below: (
         @include grid-column(8);
     }
     background-color: white;
-    height: 1000px;
+    height: 100%;
 }
 
 .header-link-sixs {
@@ -97,7 +97,7 @@ $header-link-below: (
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     top: 0;
     left: 0;
     background-color: #111;
@@ -145,18 +145,51 @@ $header-link-below: (
 .mySlides {
     display:none;
     width: 400px;
-    height: 150px;
+    height: 20%;
 }
 
 .slideshow-container {
-    width: 400px;
-    height: 200px;
+    width: 45%;
+    height: 25%;
     margin-top: 120px;
     margin-left: 100px;
 }
 
+@media (max-width: 1000px) {
+    .slideshow-container {
+        width: 80%;
+    }
+
+    .mySlides {
+        width: 80%;
+    }
+
+    .slides-text {
+        line-height: 100%;
+    }
+
+    .dot-div {
+        text-align: center;
+    }
+}
+
+@media (min-width: 1000px) {
+    .slides-text {
+        line-height: 10%;
+    }
+
+    .dot-div {
+        text-align: right;
+    }
+}
+
 .slides-text {
-    line-height: 10%;
+    font-size: 32px;
+}
+
+.slides-text-bottom {
+    font-size: 15px; 
+    color: gray
 }
 
 .dot {
@@ -188,4 +221,142 @@ $header-link-below: (
 @keyframes fade {
     from {opacity: .4} 
     to {opacity: 1}
+}
+//
+
+//for bottom
+#bottom-container {
+    overflow: hidden;
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media (min-width: 1000px) {
+    #bottom-container {
+        height: 350px;
+    }
+
+    #bottom-container > #bottom-items {
+        width: 65.8%;
+    }
+
+    #bottom-items {
+        position: absolute;
+        bottom: 30px;
+    }
+}
+
+@media (max-width: 1000px) {
+    #bottom-container {
+        height: 750px;
+    }
+
+    .spoling-background {
+        text-align: center;
+    }
+
+    .bottom-side {
+        display: none;
+    }
+
+    #bottom-container > #bottom-items {
+        width: 100%;
+    }
+
+    #bottom-items {
+        position: absolute;
+        z-index: 2;
+        top: 80%;
+    }
+}
+
+#spoling-background {
+    transform:rotate(6deg);
+    position: relative;
+    z-index: 2;
+    top: 85px;
+    left: -10%;
+    width: 180%;
+    height: 120%;
+    background-color: rgb(2, 56, 132);
+}
+
+#bottom-items {
+    z-index: 2;
+}
+//
+
+//for bottom single div
+$bottom-single-mid: (
+    columns: 7,
+    gutter: 0px,
+    media: "(min-width: 1000px)",
+);
+
+$bottom-single-mid-below: (
+    columns: 1,
+    gutter: 0px,
+);
+
+$bottom-single-thirds: (
+    columns: 3,
+    gutter: 50px,
+    media: "(min-width: 1000px)",
+);
+
+$bottom-single-thirds-below: (
+    columns: 1,
+    gutter: 0px,
+);
+
+.bottom-single-mid {
+    @include grid-container;
+}
+
+.bottom-single-mid__side-div {
+    @include grid-column(1, $bottom-single-mid);
+    height: 100px;
+}
+
+.bottom-single-mid__mid-div {
+    @include grid-media($bottom-single-mid) {
+        @include grid-column(5);
+    }
+
+    @include grid-column(1, $bottom-single-mid-below);
+    margin-bottom: 40px;
+    color: white;
+}
+
+.bottom-single-thirds {
+    @include grid-collapse($bottom-single-thirds);
+    @include grid-container;
+}
+
+.bottom-single-thirds__items {
+    @include grid-media($bottom-single-thirds) {
+        @include grid-column(1);
+    }
+
+    @include grid-column(1, $bottom-single-thirds-below);
+}
+
+@media (max-width: 1000px) {
+    .bottom-single-thirds__items {
+        margin-bottom: 40px;
+    }
+}
+
+.bototm-body-text {
+    font-size: 11px;
+}
+
+.bottom-link {
+    font-size: 12px;
+    color: rgb(4, 156, 2);
+    text-decoration: underline;
+    &:hover {
+        color: lightgreen;
+        cursor: pointer;
+    }
 }

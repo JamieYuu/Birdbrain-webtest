@@ -11,6 +11,8 @@
     <div class="body-background-thirds__side"></div>
 
     <div class="body-background-thirds__center">
+
+        <!-- nav bar -->
         <div id="nav-links">
             <div class="header-link-sixs__left-blank"><p></p></div>
             <div class="header-link-sixs__theLink"><p class="the-link">HOME</p></div>
@@ -35,48 +37,73 @@
             <a href="#">CONTACT</a>
         </div>
 
+        <!-- slides -->
         <div class="slideshow-container">    
             <div class="mySlides fade">
                 <br/>
-                <p class="slides-text" style="font-size:32px">INNOVATIVE STRATEGY</p>
-                <p class="slides-text" style="font-size:32px">WORLD CLASS DELIVERY</p>
-                <p style="font-size: 15px; color: gray">Accelerating your business transformation and Cloud journey.</p>
+                <p class="slides-text">INNOVATIVE STRATEGY</p>
+                <p class="slides-text">WORLD CLASS DELIVERY</p>
+                <p class="slides-text-bottom">Accelerating your business transformation and Cloud journey.</p>
             </div>
                 
             <div class="mySlides fade">
                     <br/>
-                    <p class="slides-text" style="font-size:32px">This is slides2</p>
-                    <p class="slides-text" style="font-size:32px">SOME TEXT</p>
-                    <p style="font-size: 15px; color: gray">Accelerating your business transformation and Cloud journey.</p>
+                    <p class="slides-text">This is slides2</p>
+                    <p class="slides-text">SOME TEXT</p>
+                    <p class="slides-text-bottom">Accelerating your business transformation and Cloud journey.</p>
                 </div>
                 
                 <div class="mySlides fade">
                         <br/>
-                        <p class="slides-text" style="font-size:32px">This is slides3</p>
-                        <p class="slides-text" style="font-size:32px">TEXT</p>
-                        <p style="font-size: 15px; color: gray">Accelerating your business transformation and Cloud journey.</p>
+                        <p class="slides-text">This is slides3</p>
+                        <p class="slides-text">SOME TEXT</p>
+                        <p class="slides-text-bottom">Accelerating your business transformation and Cloud journey.</p>
                     </div>
 
             <br/>
 
-            <div style="text-align:right">
+            <div class="dot-div">
                 <span class="dot" onclick="currentSlide(1)"></span> 
                 <span class="dot" onclick="currentSlide(2)"></span> 
                 <span class="dot" onclick="currentSlide(3)"></span> 
             </div>
         </div>
 
+        <!-- bottom div -->
+        <div id="bottom-container">
+            <div id="spoling-background"></div>
+            
+            <div id="bottom-items"> 
+                <div class="bottom-single-mid__side-div bottom-side"></div>
 
+                <div class="bottom-single-mid__mid-div">
+                    <div class="bottom-single-thirds__items">
+                        <p><i class="fa fa-commenting-o fa-3x" aria-hidden="true"></i></p>
+                        <p class="bottom-header-text">CONSULT</p>
+                        <p class="bototm-body-text">Helping you make the right choices to solve critical business challenges.</p>                        <a class="bottom-link" href="#">Find out more.</a>
+                    </div>
 
-
+                    <div class="bottom-single-thirds__items">
+                        <p><i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i></p>
+                        <p class="bottom-header-text">IMPLEMENT</p>
+                        <p class="bototm-body-text">Implementing great IT solutions first time.</p>
+                        <a class="bottom-link" href="#">Find out more.</a>
+                    </div>
+                    
+                    <div class="bottom-single-thirds__items">
+                        <p><i class="fa fa-laptop fa-3x" aria-hidden="true"></i></p>
+                        <p class="bottom-header-text">MANAGE</p>
+                        <p class="bototm-body-text">Monitoring, managing and optimising your IT platform.</p>
+                        <a class="bottom-link" href="#">Find out more.</a>
+                    </div>
+                </div>
+                
+                <div class="bottom-single-mid__side-div bottom-side"></div>
+            </div>
+        </div>
     </div>
 
-    
-    
-
     <div class="body-background-thirds__side"></div>
-    
-
 <script>
 // for nav drawer
     function openNav() {
@@ -96,21 +123,20 @@ function currentSlide(n) {
     showSlides(slideIndex = n);
 }
 
-function showSlides() {
+function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1} 
+    if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";  
+        slides[i].style.display = "none"; 
     }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
-    slides[slideIndex-1].style.display = "block";  
+    slides[slideIndex-1].style.display = "block"; 
     dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 3000); // slides switch every 3 seconds
 }
 //
 </script>
